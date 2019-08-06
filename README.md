@@ -1,7 +1,7 @@
 Editable Radar Chart
 --
 
-![index.html](https://github.com/HorsonLiu/EditableRadarChart/master/chart.png)
+![index.html](https://github.com/HorsonLiu/EditableRadarChart/blob/master/chart.png)
 
 # 描述
 可以通过直接拖拽来修改数据的雷达图和蛛网图的js控件。
