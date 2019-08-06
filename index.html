@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Editable Radar Chart</title>
+    <script src="d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+<div id="body">
+    <div id="radarChart" style="float: right"></div>
+    <div id="spiderChart" style="float: left"></div>
+</div>
+
+<script src="radarChart.js"></script>
+<script src="spiderChart.js"></script>
+<script>
+    let chartOptions = {
+        maxValue: 1.0,
+        levels: 5,
+        color: d3.scale.ordinal().range(["#00A0B0", "#EDC951"])
+    };
+
+    let axes = ["生存", "团战", "发育", "KDA", "输出"];
+    let a_model = [0.5, 0.3, 0.4, 0.6, 0.59];
+    let b_model = [0.9, 0.8, 0.99, 0.9, 0.7];
+
+    function handleEdit(axis_index, value) {
+        console.log("change:" + axis_index + " to " + value);
+    }
+
+    // Only the last model can be edited, others are read only.
+    RadarChart("#radarChart", axes, [a_model, b_model], chartOptions, handleEdit);
+    SpiderChart("#spiderChart", axes, [a_model, b_model], chartOptions, handleEdit);
+</script>
+
+</body>
+</html>
